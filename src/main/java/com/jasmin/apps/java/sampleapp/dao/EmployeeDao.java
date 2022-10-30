@@ -5,7 +5,6 @@ import com.jasmin.apps.java.sampleapp.utils.H2DatabaseUtils;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,7 +45,7 @@ public class EmployeeDao {
 
     public List<Employee> getEmployees() {
         ResultSet resultSet = this.h2DatabaseUtils.getAllRecords();
-        List<Employee> employees = new ArrayList<Employee>();
+        List<Employee> employees = new ArrayList<>();
         try {
             while (resultSet.next()) {
                 Employee employee = new Employee();

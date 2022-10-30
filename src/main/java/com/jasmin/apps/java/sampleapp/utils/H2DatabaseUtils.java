@@ -1,10 +1,7 @@
 package com.jasmin.apps.java.sampleapp.utils;
 
-import com.jasmin.apps.java.sampleapp.beans.Employee;
-
 import java.sql.*;
 import java.time.LocalDate;
-import java.util.List;
 
 public class H2DatabaseUtils {
 
