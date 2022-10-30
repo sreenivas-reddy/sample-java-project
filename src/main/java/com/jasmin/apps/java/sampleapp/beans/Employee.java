@@ -7,8 +7,20 @@ public class Employee {
     private String name;
     private LocalDate dateOfBirth;
     private String designation;
-
     private float salary;
+
+    public Employee() {
+        super();
+    }
+
+    public Employee(int id, String name, LocalDate dateOfBirth, String designation, float salary) {
+        this();
+        this.id = id;
+        this.name = name;
+        this.dateOfBirth = dateOfBirth;
+        this.designation = designation;
+        this.salary = salary;
+    }
 
     public int getId() {
         return id;
