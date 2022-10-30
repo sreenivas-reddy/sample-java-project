@@ -11,34 +11,64 @@ public class EmployeeTest {
 
     @Test
     public void getId() {
+        Employee employee = new Employee(2, "Bruce Wayne", LocalDate.of(1975, Month.DECEMBER, 01), "Lead Superhero", 50000);
+        assertEquals(2, employee.getId());
+    }
+
+    @Test
+    public void getName() {
+        Employee employee = new Employee(2, "Bruce Wayne", LocalDate.of(1975, Month.DECEMBER, 01), "Lead Superhero", 50000);
+        assertEquals("Bruce Wayne", employee.getName());
+    }
+
+    @Test
+    public void getDateOfBirth() {
+        Employee employee = new Employee(2, "Bruce Wayne", LocalDate.of(1975, Month.DECEMBER, 01), "Lead Superhero", 50000);
+        assertEquals(LocalDate.of(1975, Month.DECEMBER, 01), employee.getDateOfBirth());
+    }
+
+    @Test
+    public void getDesignation() {
+        Employee employee = new Employee(2, "Bruce Wayne", LocalDate.of(1975, Month.DECEMBER, 01), "Lead Superhero", 50000);
+        assertEquals("Lead Superhero", employee.getDesignation());
+    }
+
+    @Test
+    public void getSalary() {
+        Employee employee = new Employee(2, "Bruce Wayne", LocalDate.of(1975, Month.DECEMBER, 01), "Lead Superhero", 50000);
+        assertEquals(50000, employee.getSalary(), 0);
+    }
+
+    @Test
+    public void setId() {
         Employee employee = new Employee();
         employee.setId(1);
         assertEquals(1, employee.getId());
     }
 
     @Test
-    public void getName() {
+    public void setName() {
         Employee employee = new Employee();
-        employee.setName("Bruce Wayne");
-        assertEquals("Bruce Wayne", employee.getName());
+        employee.setName("Clark Kent");
+        assertEquals("Clark Kent", employee.getName());
     }
 
     @Test
-    public void getDateOfBirth() {
+    public void setDateOfBirth() {
         Employee employee = new Employee();
-        employee.setDateOfBirth(LocalDate.of(1975, Month.DECEMBER, 01));
-        assertEquals(LocalDate.of(1975, Month.DECEMBER, 01), employee.getDateOfBirth());
+        employee.setDateOfBirth(LocalDate.of(1975, Month.JANUARY, 01));
+        assertEquals(LocalDate.of(1975, Month.JANUARY, 01), employee.getDateOfBirth());
     }
 
     @Test
-    public void getDesignation() {
+    public void setDesignation() {
         Employee employee = new Employee();
-        employee.setDesignation("Lead Superhero");
-        assertEquals("Lead Superhero", employee.getDesignation());
+        employee.setDesignation("Superhero");
+        assertEquals("Superhero", employee.getDesignation());
     }
 
     @Test
-    public void getSalary() {
+    public void setSalary() {
         Employee employee = new Employee();
         employee.setSalary(20000);
         assertEquals(20000, employee.getSalary(), 0);
