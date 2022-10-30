@@ -74,22 +74,32 @@ public class H2DatabaseUtils {
         }
     }
 
-    public void printEmployeeTable() {
-        String SQL_STATEMENT = "SELECT * FROM EMPLOYEE;";
+    public ResultSet getRecord(int id) {
+        String SQL_STATEMENT = "SELECT * FROM EMPLOYEE WHERE ID = ?;";
         Connection connection = getConnection();
+        ResultSet resultSet = null;
         try {
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(SQL_STATEMENT);
-            while (resultSet.next()) {
-                System.out.println("Employee ID: " + resultSet.getInt(1));
-                System.out.println("Employee Name: " + resultSet.getString(2));
-                System.out.println("Employee DOB: " + resultSet.getDate(3));
-                System.out.println("Employee Designation: " + resultSet.getString(4));
-                System.out.println("Employee Salary: " + resultSet.getFloat(5));
-                System.out.println();
-            }
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL_STATEMENT);
+            preparedStatement.setInt(1, id);
+            resultSet = preparedStatement.executeQuery();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return resultSet;
     }
+
+    public ResultSet getAllRecords() {
+        String SQL_STATEMENT = "SELECT * FROM EMPLOYEE;";
+        Connection connection = getConnection();
+        ResultSet resultSet = null;
+        try {
+            Statement statement = connection.createStatement();
+            resultSet = statement.executeQuery(SQL_STATEMENT);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return resultSet;
+    }
+
 }
